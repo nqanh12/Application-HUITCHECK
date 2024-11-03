@@ -1,0 +1,70 @@
+import 'package:flutter/material.dart';
+
+import 'dash_board_admin.dart';
+
+class EventListScreen extends StatelessWidget {
+  final List<Map<String, dynamic>> events = [
+    {
+      "_id": "1",
+      "name": "Tech Conference",
+      "description": "A conference on the latest tech trends",
+      "date_start": "2024-09-21",
+      "date_end": "2024-09-23",
+      "location": "Hall A",
+    },
+    {
+      "_id": "2",
+      "name": "Workshop on AI",
+      "description": "AI development and future",
+      "date_start": "2024-10-05",
+      "date_end": "2024-10-06",
+      "location": "Room 202",
+    }
+  ];
+
+   EventListScreen({super.key}); // Sample events
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Event List'),
+        backgroundColor: Colors.blue[900]!, // Ensure non-nullable Color
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.lightBlueAccent, Colors.blue[900]!], // Ensure non-nullable Color
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: ListView.builder(
+          itemCount: events.length,
+          itemBuilder: (context, index) {
+            var event = events[index];
+            return Card(
+              margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+              child: ListTile(
+                title: Text(event['name']),
+                subtitle: Text(
+                    '${event['date_start']} - ${event['date_end']}\nLocation: ${event['location']}'),
+                trailing: const Icon(Icons.arrow_forward),
+                onTap: () {
+                  // Navigate to the participant list
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          ParticipantListScreen(eventId: event['_id']),
+                    ),
+                  );
+                },
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
