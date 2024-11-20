@@ -51,8 +51,8 @@ class DefaultFirebaseOptions {
       projectId: "eventmanagement-bc931",
       storageBucket: "eventmanagement-bc931.appspot.com",
       messagingSenderId: "436065911178",
-      appId: "1:436065911178:web:24d8067668ffea66efc873",
-      measurementId: "G-Z1KGRWRFWG"
+      appId: "1:436065911178:web:f900b11cb52460feefc873",
+      measurementId: "G-BP098VW0QX"
   );
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCy2rk5rpoEVDbCCWru515fVJfMmHzYSmM',
